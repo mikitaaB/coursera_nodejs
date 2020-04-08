@@ -60,11 +60,11 @@ app.use('/users', users);
 //     err.status = 401;
 //     next(err);
 //   } else {
-//         next();
+//     next();
 //   }
 // }
 
-app.use(auth);
+// app.use(auth);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
