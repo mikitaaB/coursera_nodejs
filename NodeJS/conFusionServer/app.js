@@ -11,6 +11,7 @@ var users = require('./routes/users');
 var dishRouter = require('./routes/dishRouter');
 var promoRouter = require('./routes/promoRouter');
 var leaderRouter = require('./routes/leaderRouter');
+const uploadRouter = require('./routes/uploadRouter');
 var config = require('./config');
 
 const mongoose = require('mongoose');
@@ -51,6 +52,7 @@ app.use(passport.initialize());
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/imageUpload',uploadRouter);
 
 // function auth (req, res, next) {
 //   console.log(req.user);
