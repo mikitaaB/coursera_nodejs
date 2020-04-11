@@ -12,6 +12,7 @@ var dishRouter = require('./routes/dishRouter');
 var promoRouter = require('./routes/promoRouter');
 var leaderRouter = require('./routes/leaderRouter');
 const uploadRouter = require('./routes/uploadRouter');
+const favoriteRouter = require('./routes/favoriteRouter');
 var config = require('./config');
 
 const mongoose = require('mongoose');
@@ -52,7 +53,11 @@ app.use(passport.initialize());
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/dishes',dishRouter);
+app.use('/promotions',promoRouter);
+app.use('/leaders',leaderRouter);
 app.use('/imageUpload',uploadRouter);
+app.use('/favorites',favoriteRouter);
 
 // function auth (req, res, next) {
 //   console.log(req.user);
@@ -69,10 +74,6 @@ app.use('/imageUpload',uploadRouter);
 // app.use(auth);
 
 app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/dishes',dishRouter);
-app.use('/promotions',promoRouter);
-app.use('/leaders',leaderRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
